@@ -1,12 +1,10 @@
 import Koa from 'koa'
-import Router from '@koa/router'
 import bodyParser from 'koa-bodyparser'
 
 import rootRouter from './router/root'
 import todoRouter from './router/todo'
 
 const app = new Koa()
-const router = new Router()
 
 // middleware sample
 app.use(async (ctx: Koa.Context, next: Koa.Next) => {
@@ -21,8 +19,9 @@ app.use(bodyParser())
 
 // routers
 app.use(rootRouter.routes())
+app.use(rootRouter.allowedMethods())
 app.use(todoRouter.routes())
-app.use(router.routes()).use(router.allowedMethods())
+app.use(todoRouter.allowedMethods())
 
 // error handling
 app.on('error', (err) => {

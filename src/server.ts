@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
+import cors from '@koa/cors'
 
 import rootRouter from './router/root'
 import todoRouter from './router/todo'
@@ -13,6 +14,9 @@ app.use(async (ctx: Koa.Context, next: Koa.Next) => {
   const time = Date.now() - start
   console.log(`${ctx.method} ${ctx.url} - ${time}ms`)
 })
+
+// CORS
+app.use(cors())
 
 // parser
 app.use(bodyParser())

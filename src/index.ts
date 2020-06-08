@@ -1,5 +1,8 @@
-function hello(name: string): string {
-  return `Hello, ${name}!`
-}
+import Koa from 'koa'
+const app = new Koa()
 
-console.log(hello('World'))
+app.use(async (ctx: Koa.Context) => {
+  ctx.body = 'Hello World'
+})
+
+app.listen(3000)

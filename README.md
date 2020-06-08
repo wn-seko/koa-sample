@@ -9,3 +9,5 @@
 ### [@koa/router](https://github.com/koajs/router)
 
 - [API](https://github.com/koajs/router/blob/master/API.md#module_koa-router--Router+allowedMethods)
+
+### [koa-bodyparser](https://github.com/koajs/bodyparser)
